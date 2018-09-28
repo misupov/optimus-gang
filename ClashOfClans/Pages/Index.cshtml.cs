@@ -1,23 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using ClashOfClans.Pages.Model;
-using Microsoft.AspNetCore.Mvc;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ClashOfClans.Pages
 {
     public class IndexModel : PageModel
     {
-        public string Message { get; } = "PageModel in C#";
-
-        public IndexModel()
-        {
-
-        }
-
+        [UsedImplicitly]
         public async Task OnGet()
         {
             using (var httpClient = new HttpClient(new SocketsHttpHandler()))
@@ -27,10 +19,10 @@ namespace ClashOfClans.Pages
                 var response = await httpClient.GetAsync("https://api.clashofclans.com/v1/clans/%23Q8GRU2LR");
                 response.EnsureSuccessStatusCode();
                 var responseBody = await response.Content.ReadAsAsync<ClanDetails>();
-                Description = responseBody.Description;
+                ClanDetails = responseBody;
             }
         }
 
-        public string Description { get; private set; }
+        public ClanDetails ClanDetails { get; private set; }
     }
 }
