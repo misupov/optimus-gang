@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "Clash";
+    src: url("../fonts/Supercell-Magic.ttf");
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Clash, Arial;
+    background: url(../images/clouds.jpg) no-repeat, linear-gradient(#C1F0FF, #C1F0FF);
+    background-size: 100%;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-inverse {
+    background-color: #4A9FD3;
+    border-color: #4A9FD3;
+}
+
+.navbar-inverse .navbar-brand > a { color: white; }
+
+.navbar-inverse .navbar-brand > a:visited { color: white; }
+
+.navbar-inverse .navbar-nav > li > a { color: white; }
+
+.navbar-inverse .navbar-nav > li > a:visited { color: white; }

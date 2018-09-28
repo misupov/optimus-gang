@@ -1,0 +1,21 @@
+﻿{
+    "short_name": "Optimus Gang",
+    "name": "Optimus Gang",
+    "icons": [
+        {
+            "src": "/images/icons-192.jpg",
+            "type": "image/jpg",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/images/icons-400.jpg",
+            "type": "image/jpg",
+            "sizes": "400x400"
+        }
+    ],
+    "start_url": "/?source=pwa",
+    "background_color": "#4A9FD3",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#4A9FD3"
+}

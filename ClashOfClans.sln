@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClashOfClans", "ClashOfClans\ClashOfClans.csproj", "{54CEE388-FB3B-40B9-A2CE-C1FEA47CFE0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54CEE388-FB3B-40B9-A2CE-C1FEA47CFE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CEE388-FB3B-40B9-A2CE-C1FEA47CFE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CEE388-FB3B-40B9-A2CE-C1FEA47CFE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CEE388-FB3B-40B9-A2CE-C1FEA47CFE0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5331338A-0D62-4065-8D55-A1B5EBDFD1D9}
+	EndGlobalSection
+EndGlobal
