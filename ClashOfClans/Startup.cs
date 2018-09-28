@@ -50,7 +50,6 @@ namespace ClashOfClans
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
 
             app.UseMvc();
         }
