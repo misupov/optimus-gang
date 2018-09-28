@@ -17,12 +17,12 @@
     <div>
         <img class="shield" src="@Model.ClanDetails.BadgeUrls.Small">
     </div>
-    <div style="flex: 0.3">
+    <div>
         <div>Всего очков: @Model.ClanDetails.ClanPoints / @Model.ClanDetails.ClanVersusPoints</div>
         <div>Выиграно войн: @Model.ClanDetails.WarWins</div>
         <div>Проиграно войн: @Model.ClanDetails.WarLosses</div>
         <div>Ничья: @Model.ClanDetails.WarTies</div>
-        <div>Соотношение побед к проигрышам: @(((double)Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
+        <div>Побед &divide; поражений: @(((double)Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
         <div>Серия побед: @Model.ClanDetails.WarWinStreak</div>
         <div>Публичный варлог: @Model.ClanDetails.IsWarLogPublic</div>
         <div>Необходимо трофеев: @Model.ClanDetails.RequiredTrophies</div>
