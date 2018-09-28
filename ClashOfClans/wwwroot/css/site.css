@@ -5,10 +5,22 @@
 
 body {
     padding-top: 50px;
+    color: white;
     padding-bottom: 20px;
     font-family: Clash, Arial;
     background: url(../images/clouds.jpg) no-repeat, linear-gradient(#C1F0FF, #C1F0FF);
     background-size: 100%;
+}
+
+.block {
+    font-size: x-small;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .body-content {
