@@ -11,6 +11,10 @@
 
     .shield {
     }
+
+    .user-details {
+        margin: 8px 0;
+    }
 </style>
 
 <div class="block about">
@@ -19,24 +23,33 @@
     </div>
     <div>
         <div>Всего очков: @Model.ClanDetails.ClanPoints / @Model.ClanDetails.ClanVersusPoints</div>
+        <div>Серия побед: @Model.ClanDetails.WarWinStreak</div>
         <div>Выиграно войн: @Model.ClanDetails.WarWins</div>
         <div>Проиграно войн: @Model.ClanDetails.WarLosses</div>
         <div>Ничья: @Model.ClanDetails.WarTies</div>
         <div>Побед &divide; поражений: @(((double)Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
-        <div>Серия побед: @Model.ClanDetails.WarWinStreak</div>
-        <div>Публичный варлог: @Model.ClanDetails.IsWarLogPublic</div>
+        <div>Публичный варлог: @(Model.ClanDetails.IsWarLogPublic ? "Да" : "Нет")</div>
         <div>Необходимо трофеев: @Model.ClanDetails.RequiredTrophies</div>
         <div>Расположение клана: @Model.ClanDetails.Location.Name</div>
         <div>Соклановцы: @Model.ClanDetails.Members/50</div>
     </div>
 </div>
 <div class="block"><div>@Model.ClanDetails.Description</div></div>
+<div class="block">
+    @foreach (var member in Model.ClanDetails.MemberList.OrderByDescending(m => m.Donations))
+    {
+    <div class="user-details">
+        <div>@member.Name</div>
+        <div>@member.Donations / @member.DonationsReceived</div>
+    </div>
+    }
+</div>
 <div class="block">Привет!</div>
 <div class="block">Привет!</div>
 <div class="block">Привет!</div>
 <div class="block">Привет!</div>
 <div class="block">Привет!</div>
-<div class="block">Привет!</div>
+<div class="block">Yuriy!</div>
 <div class="block">РоЗоВыЙ СлОнИк!</div>
 
 <div style="height: 5000px"></div>
