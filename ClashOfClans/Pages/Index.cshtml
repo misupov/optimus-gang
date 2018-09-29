@@ -43,15 +43,17 @@
 <div class="block"><div>@Model.ClanDetails.Description</div></div>
 
 <div class="block">
-    @foreach (var member in Model.ClanDetails.MemberList.OrderByDescending(m => m.Donations))
-    {
-    <div class="user-details">
-        <div style="font-size: larger; color: yellow">@member.Name (@member.ExpLevel)</div>
-        <div><span>Пожертвовал: </span>@member.Donations</div>
-        <div><span>Получил: </span>@member.DonationsReceived</div>
-        <div><span>Вклад: </span>@((member.Donations/totalDonation).ToString("P"))</div>
-    </div>
-    }
+    <ol>
+        @foreach (var member in Model.ClanDetails.MemberList.OrderByDescending(m => m.Donations))
+        {
+            <li class="user-details">
+                <div style="font-size: larger; color: yellow">@member.Name (@member.ExpLevel)</div>
+                <div><span>Пожертвовал: </span>@member.Donations</div>
+                <div><span>Получил: </span>@member.DonationsReceived</div>
+                <div><span>Вклад: </span>@((member.Donations / totalDonation).ToString("P"))</div>
+            </li>
+        }
+    </ol>
 </div>
 <div class="block">Привет!</div>
 <div class="block">Yuriy!</div>
