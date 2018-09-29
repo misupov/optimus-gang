@@ -91,9 +91,9 @@
                     color2 = "rgba(255, 255, 255, 0.8)";
                     break;
             }
-            <div class="row" style="background-image: linear-gradient(@color1, @color2); display: flex">
+            <div class="row" style="background-image: linear-gradient(@color1, @color2); display: flex; flex-wrap: nowrap;white-space: nowrap">
                 <span style="flex: 1; text-align: end">
-                    <span style="font-size: xx-small;margin-right: 10px">Optimus Gang</span>
+                    <span style="font-size: 7px;margin-right: 5px">Optimus Gang</span>
                     <span>@((detail.Clan.DestructionPercentage / 100).ToString("P"))</span>
                     <span>
                         <img src="@detail.Clan.BadgeUrls.Small" width="22">
@@ -104,7 +104,7 @@
                         <img src="@detail.Opponent.BadgeUrls.Small" width="22">
                     </span>
                     <span>@((detail.Opponent.DestructionPercentage / 100).ToString("P"))</span>
-                    <span style="font-size: xx-small;margin-left: 10px">@detail.Opponent.Name</span>
+                    <span style="font-size: 7px;margin-left: 5px">@detail.Opponent.Name</span>
                 </span>
             </div>
         }
