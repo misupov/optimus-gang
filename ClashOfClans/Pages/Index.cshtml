@@ -5,16 +5,15 @@
 }
 
 <style>
-    .about {
-        display: flex;
-    }
+    .about { display: flex; }
 
-    .shield {
-    }
+    .shield { }
 
-    .user-details {
-        margin: 8px 0;
-    }
+    .user-details { margin: 8px 0; }
+
+    .user-details a { color: yellow; }
+
+    .user-details a:visited { color: yellow; }
 </style>
 
 <div class="block about">
@@ -27,7 +26,7 @@
         <div>Выиграно войн: @Model.ClanDetails.WarWins</div>
         <div>Проиграно войн: @Model.ClanDetails.WarLosses</div>
         <div>Ничья: @Model.ClanDetails.WarTies</div>
-        <div>Побед &divide; поражений: @(((double)Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
+        <div>Побед &divide; поражений: @(((double) Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
         <div>Публичный варлог: @(Model.ClanDetails.IsWarLogPublic ? "Да" : "Нет")</div>
         <div>Необходимо трофеев: @Model.ClanDetails.RequiredTrophies</div>
         <div>Расположение клана: @Model.ClanDetails.Location.Name</div>
@@ -36,21 +35,31 @@
 </div>
 
 @{
-    var totalDonation = (double)Model.ClanDetails.MemberList.Sum(m => m.Donations);
-    var totalDonationReceived = (double)Model.ClanDetails.MemberList.Sum(m => m.DonationsReceived);
+    var totalDonation = (double) Model.ClanDetails.MemberList.Sum(m => m.Donations);
+    var totalDonationReceived = (double) Model.ClanDetails.MemberList.Sum(m => m.DonationsReceived);
 }
 
-<div class="block"><div>@Model.ClanDetails.Description</div></div>
+<div class="block">
+    <div>@Model.ClanDetails.Description</div>
+</div>
 
 <div class="block">
     <ol>
         @foreach (var member in Model.ClanDetails.MemberList.OrderByDescending(m => m.Donations))
         {
             <li class="user-details">
-                <div style="font-size: larger; color: yellow">@member.Name (@member.ExpLevel)</div>
-                <div><span>Пожертвовал: </span>@member.Donations</div>
-                <div><span>Получил: </span>@member.DonationsReceived</div>
-                <div><span>Вклад: </span>@((member.Donations / totalDonation).ToString("P"))</div>
+                <div style="font-size: larger;">
+                    <a href="https://link.clashofclans.com/?action=OpenPlayerProfile&tag=@member.Tag">
+                        @member.Name (@member.ExpLevel)
+                    </a>
+                </div>
+                <div>
+                    <span>Пожертвовал: </span>@member.Donations</div>
+                <div>
+                    <span>Получил: </span>@member.DonationsReceived</div>
+                <div>
+                    <span>Вклад: </span>@((member.Donations / totalDonation).ToString("P"))
+                </div>
             </li>
         }
     </ol>
