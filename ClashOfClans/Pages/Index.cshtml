@@ -34,13 +34,22 @@
         <div>Соклановцы: @Model.ClanDetails.Members/50</div>
     </div>
 </div>
+
+@{
+    var totalDonation = (double)Model.ClanDetails.MemberList.Sum(m => m.Donations);
+    var totalDonationReceived = (double)Model.ClanDetails.MemberList.Sum(m => m.DonationsReceived);
+}
+
 <div class="block"><div>@Model.ClanDetails.Description</div></div>
+
 <div class="block">
     @foreach (var member in Model.ClanDetails.MemberList.OrderByDescending(m => m.Donations))
     {
     <div class="user-details">
-        <div>@member.Name</div>
-        <div>@member.Donations / @member.DonationsReceived</div>
+        <div style="font-size: larger">@member.Name (@member.ExpLevel)</div>
+        <div><span>Пожертвовал: </span>@member.Donations</div>
+        <div><span>Получил: </span>@member.DonationsReceived</div>
+        <div><span>Вклад: </span>@((member.Donations/totalDonation).ToString("P"))</div>
     </div>
     }
 </div>
