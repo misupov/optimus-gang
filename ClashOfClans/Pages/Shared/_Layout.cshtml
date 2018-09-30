@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <link rel="manifest" href="/manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Optimus Gang</title>
+    <meta name="theme-color" content="#4A9FD3">
+    <title>@(string.IsNullOrEmpty(ViewData["Title"] as string) ? "Optimus Gang" : (ViewData["Title"] + "- Optimus Gang"))</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
