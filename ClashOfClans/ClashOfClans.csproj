@@ -9,4 +9,13 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\site.js" />
+    <None Include="wwwroot\site.min.js" />
+  </ItemGroup>
+
 </Project>
