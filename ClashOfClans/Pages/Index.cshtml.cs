@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.IO.Enumeration;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using ClashOfClans.Pages.Model;
@@ -24,8 +26,30 @@ namespace ClashOfClans.Pages
                 var warlog = await httpClient.GetAsync($"https://api.clashofclans.com/v1/clans/%23{id}/warlog");
                 warlog.EnsureSuccessStatusCode();
                 var warlogDetails = await warlog.Content.ReadAsAsync<WarlogDetails>();
+                foreach (var detail in warlogDetails.Items)
+                {
+                    FixUrls(detail.Clan.BadgeUrls);
+                }
+                foreach (var detail in warlogDetails.Items)
+                {
+                    FixUrls(detail.Opponent.BadgeUrls);
+                }
                 WarlogDetails = warlogDetails;
             }
+        }
+
+        private void FixUrls(IconUrls urls)
+        {
+            urls.Small = FixUrl(urls.Small);
+            urls.Medium = FixUrl(urls.Medium);
+            urls.Large = FixUrl(urls.Large);
+        }
+
+        private string FixUrl(string url)
+        {
+            var uri = new Uri(url);
+            var path = uri.GetComponents(UriComponents.Path, UriFormat.Unescaped);
+            return "/images/coc/" + path;
         }
 
         public ClanDetails ClanDetails { get; private set; }
