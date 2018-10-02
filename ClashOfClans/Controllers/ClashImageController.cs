@@ -10,6 +10,7 @@ namespace ClashOfClans.Controllers
     {
         Dictionary<string, byte[]> cache = new Dictionary<string, byte[]>();
 
+        [ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
         [HttpGet("/images/coc/{*path}")]
         public async Task<IActionResult> Index(string path)
         {
