@@ -17,9 +17,16 @@ namespace ClashOfClans.Pages
 
         private static string Fix(string url)
         {
-            var uri = new Uri(url);
-            var path = uri.GetComponents(UriComponents.Path, UriFormat.Unescaped);
-            return "/images/coc/" + path;
+            try
+            {
+                var uri = new Uri(url);
+                var path = uri.GetComponents(UriComponents.Path, UriFormat.Unescaped);
+                return "/images/coc/" + path;
+            }
+            catch
+            {
+                return url;
+            }
         }
     }
 }
