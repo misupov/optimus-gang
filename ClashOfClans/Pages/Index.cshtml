@@ -8,8 +8,6 @@
 <style>
     .about { display: flex; }
 
-    .shield { }
-
     .user-details { margin: 8px 0; }
 
     .user-details a { color: yellow; }
@@ -19,15 +17,16 @@
 
 <div class="block about">
     <div>
-        <img class="shield" src="@Model.ClanDetails.BadgeUrls.Small">
+        <img src="@Model.ClanDetails.BadgeUrls.Small" alt="">
     </div>
     <div>
+        <button id="btnAdd" type="button" class="btn">Basic</button>
         <div>Всего очков: @Model.ClanDetails.ClanPoints / @Model.ClanDetails.ClanVersusPoints</div>
         <div>Серия побед: @Model.ClanDetails.WarWinStreak</div>
         <div>Выиграно войн: @Model.ClanDetails.WarWins</div>
         <div>Проиграно войн: @Model.ClanDetails.WarLosses</div>
         <div>Ничья: @Model.ClanDetails.WarTies</div>
-        <div>Побед &divide; поражений: @(((double) Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
+        <div>Побед &divide; поражений: @(((double)Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
         <div>Публичный варлог: @(Model.ClanDetails.IsWarLogPublic ? "Да" : "Нет")</div>
         <div>Необходимо трофеев: @Model.ClanDetails.RequiredTrophies</div>
         <div>Расположение клана: @Model.ClanDetails.Location.Name</div>
