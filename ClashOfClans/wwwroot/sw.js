@@ -22,7 +22,8 @@ const PRECACHE_URLS = [
     "manifest.json",
     "./images/icon-192.png",
     "./images/icon-512.png",
-    "./"
+    "./",
+    "/"
 ];
 
 // The install handler takes care of precaching the resources we always need.
