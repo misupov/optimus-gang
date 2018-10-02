@@ -3,6 +3,7 @@ if ("serviceWorker" in navigator) {
 }
 
 window.addEventListener("beforeinstallprompt", function (e) {
+    document.write("!!!!!");
     // log the platforms provided as options in an install prompt 
     console.log(e.platforms); // e.g., ["web", "android", "windows"] 
     e.userChoice.then(function (outcome) {
