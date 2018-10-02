@@ -22,34 +22,30 @@ namespace ClashOfClans.Pages
                 var clan = await httpClient.GetAsync($"https://api.clashofclans.com/v1/clans/%23{id}");
                 clan.EnsureSuccessStatusCode();
                 var clanDetails = await clan.Content.ReadAsAsync<ClanDetails>();
+                clanDetails.BadgeUrls = FixUrls(clanDetails.BadgeUrls);
+                foreach (var member in clanDetails.MemberList)
+                {
+                    member.League.IconUrls = FixUrls(member.League.IconUrls);
+                }
                 ClanDetails = clanDetails;
                 var warlog = await httpClient.GetAsync($"https://api.clashofclans.com/v1/clans/%23{id}/warlog");
                 warlog.EnsureSuccessStatusCode();
                 var warlogDetails = await warlog.Content.ReadAsAsync<WarlogDetails>();
                 foreach (var detail in warlogDetails.Items)
                 {
-                    FixUrls(detail.Clan.BadgeUrls);
+                    detail.Clan.BadgeUrls = FixUrls(detail.Clan.BadgeUrls);
                 }
                 foreach (var detail in warlogDetails.Items)
                 {
-                    FixUrls(detail.Opponent.BadgeUrls);
+                    detail.Opponent.BadgeUrls = FixUrls(detail.Opponent.BadgeUrls);
                 }
                 WarlogDetails = warlogDetails;
             }
         }
 
-        private void FixUrls(IconUrls urls)
+        private IconUrls FixUrls(IconUrls urls)
         {
-            urls.Small = FixUrl(urls.Small);
-            urls.Medium = FixUrl(urls.Medium);
-            urls.Large = FixUrl(urls.Large);
-        }
-
-        private string FixUrl(string url)
-        {
-            var uri = new Uri(url);
-            var path = uri.GetComponents(UriComponents.Path, UriFormat.Unescaped);
-            return "/images/coc/" + path;
+            return FixUrl.Fix(urls);
         }
 
         public ClanDetails ClanDetails { get; private set; }
