@@ -19,7 +19,9 @@ const RUNTIME = "runtime";
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-    "./manifest.json",
+    "manifest.json",
+    "./images/icon-192.png",
+    "./images/icon-512.png",
     "./"
 ];
 
