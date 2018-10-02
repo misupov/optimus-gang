@@ -17,7 +17,7 @@ function Stop-AppPool ($webAppPoolName, [int]$secs) {
 
 git pull
 dotnet publish
-Stop-AppPool -Name "clash.lam0x86.ru"
+Stop-AppPool "clash.lam0x86.ru" 30
 Start-Sleep 2
 Copy-Item "ClashOfClans\bin\Debug\netcoreapp2.1\publish\*" -Destination "C:\WebSites\clash.lam0x86.ru\" -Recurse -Force
 Start-WebAppPool -Name "clash.lam0x86.ru"
