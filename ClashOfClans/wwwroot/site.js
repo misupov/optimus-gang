@@ -1,8 +1,4 @@
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/sw.js?v=1");
-}
-
-﻿Vue.component("clash-clan-info",
+Vue.component("clash-clan-info",
     {
         props: ["info"],
         template: `
