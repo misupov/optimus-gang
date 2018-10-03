@@ -39,6 +39,37 @@ Vue.component("clash-clan-moto",
 `
     });
 
+Vue.component("clash-clan-donation-details", {
+    props: {
+        item: { type: Object },
+        totalDonation: { type: Number }
+    },
+    computed: {
+        openPlayerProfileHref: function () {
+            return `https://link.clashofclans.com/?action=OpenPlayerProfile&tag=${this.tag}`;
+        }
+    },
+    template: `
+<div>
+    <div style="font-size: larger;">
+        <a v-bind:href="openPlayerProfileHref">
+            <img v-bind:src="item.league.iconUrls.small" width="25" height="25"/>
+            {{item.name}} ({{item.expLevel}})
+        </a>
+    </div>
+    <div>
+        <span>Пожертвовал: </span>{{item.donations}}
+    </div>
+    <div>
+        <span>Получил: </span>{{item.donationsReceived}}
+    </div>
+    <div>
+        <span>Вклад: </span>{{((item.donations / totalDonation)*100).toFixed(1)}}%
+    </div>
+</div>
+`
+});
+
 Vue.component("clash-clan-donation",
     {
         props: {
@@ -58,21 +89,7 @@ Vue.component("clash-clan-donation",
     Донат:
     <ol>
         <li class="user-details" v-for="item in orderedMemberList">
-            <div style="font-size: larger;">
-                <a href="https://link.clashofclans.com/?action=OpenPlayerProfile&tag=@member.Tag">
-                    <img v-bind:src="item.league.iconUrls.small" width="25" height="25"/>
-                    {{item.name}} ({{item.expLevel}})
-                </a>
-            </div>
-            <div>
-                <span>Пожертвовал: </span>{{item.donations}}
-            </div>
-            <div>
-                <span>Получил: </span>{{item.donationsReceived}}
-            </div>
-            <div>
-                <span>Вклад: </span>{{((item.donations / totalDonation)*100).toFixed(1)}}%
-            </div>
+            <clash-clan-donation-details v-bind:item="item" v-bind:totalDonation="totalDonation"></clash-clan-donation-details>
         </li>
     </ol>
 </div>
@@ -95,8 +112,8 @@ Vue.component("clash-warlog-item",
                         return "background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8))";
                 }
             },
-            orderedMemberList: function () {
-                return _.orderBy(this.clanDetails.memberList, "donations", "desc");
+            openClanHref: function() {
+                return `https://link.clashofclans.com/?action=OpenClanProfile&tag=${this.item.opponent.tag}`;
             }
         },
         template: `
@@ -113,7 +130,7 @@ Vue.component("clash-warlog-item",
             <img v-bind:src="item.opponent.badgeUrls.small" width="22">
         </span>
         <span>{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
-        <span style="font-size: 7px;margin-left: 5px">{{item.opponent.name}}</span>
+        <a v-bind:href="openClanHref" style="font-size: 7px;margin-left: 5px">{{item.opponent.name}}</a>
     </span>
 </div>
 `
