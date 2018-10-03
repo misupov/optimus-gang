@@ -14,9 +14,9 @@ if ("serviceWorker" in navigator) {
         <div>Всего очков: {{info.clanPoints}} / {{info.clanVersusPoints}}</div>
         <div>Серия побед: {{info.warWinStreak}}</div>
         <div>Выиграно войн: {{info.warWins}}</div>
-        <div>Проиграно войн: {{info.WarLosses}}</div>
+        <div>Проиграно войн: {{info.warLosses}}</div>
         <div>Ничья: {{info.warTies}}</div>
-        <div>Побед &divide; поражений: {{(info.warWins / info.warLosses).toFixed(3)}}</div>
+        <div>Побед &divide; поражений: {{(info.warLosses === 0 ? 0 : info.warWins / info.warLosses).toFixed(3)}}</div>
         <div>Публичный варлог: {{info.isWarLogPublic ? "Да" : "Нет"}}</div>
         <div>Необходимо трофеев: {{info.requiredTrophies}}</div>
         <div>Расположение клана: {{info.location.name}}</div>
@@ -64,7 +64,12 @@ var app = new Vue({
     },
     data() {
         return {
-            post: {tag:"123"}
+            post: {
+                warWins: 0,
+                warLosses: 0,
+                badgeUrls: { small: null },
+                location: { name: null }
+            }
         }
     },
     methods: {
@@ -75,7 +80,7 @@ var app = new Vue({
     template: `
 <div>
 <clash-clan-info v-bind:info="post"></clash-clan-info>
-<clash-clan-moto v-bind:info="post"></clash-clan-info>
+<clash-clan-moto v-bind:info="post"></clash-clan-moto>
 </div>
 `
 })
