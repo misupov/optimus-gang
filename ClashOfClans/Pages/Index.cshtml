@@ -24,10 +24,6 @@
 }
 
 <div class="block">
-    <div>@Model.ClanDetails.Description</div>
-</div>
-
-<div class="block">
     Донат:
     <ol>
         @foreach (var member in Model.ClanDetails.MemberList.OrderByDescending(m => m.Donations))

@@ -29,12 +29,12 @@ if ("serviceWorker" in navigator) {
 
 Vue.component("clash-clan-moto",
     {
-        data: function () {
-            return {
-                count: 0
-            }
-        },
-        template: '<a>!!!!!</a>'
+        props: ["info"],
+        template: `
+<div class="block">
+    <div>{{info.description}}</div>
+</div>
+`
     });
 
 Vue.component("clash-clan-donation",
@@ -73,6 +73,9 @@ var app = new Vue({
         }
     },
     template: `
+<div>
 <clash-clan-info v-bind:info="post"></clash-clan-info>
+<clash-clan-moto v-bind:info="post"></clash-clan-info>
+</div>
 `
 })
