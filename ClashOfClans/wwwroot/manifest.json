@@ -13,7 +13,6 @@
             "sizes": "512x512"
         }
     ],
-    "orientation": "landscape",
     "start_url": ".",
     "background_color": "#4A9FD3",
     "display": "standalone",
