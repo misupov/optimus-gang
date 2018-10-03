@@ -105,11 +105,11 @@ Vue.component("clash-warlog-item",
             background: function () {
                 switch (this.item.result) {
                     case "win":
-                        return "background-image: linear-gradient(rgba(128, 255, 128, 0.5), rgba(192, 255, 192, 0.8))";
+                        return "background-image: linear-gradient(#BDD38C, #A5C76B)";
                     case "lose":
-                        return "background-image: linear-gradient(rgba(255, 128, 128, 0.5), rgba(255, 192, 192, 0.8))";
+                        return "background-image: linear-gradient(#C88083, #BD696B)";
                     default :
-                        return "background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8))";
+                        return "background-image: linear-gradient(#D1D0C7, #C2C2B7)";
                 }
             },
             openClanHref: function() {
