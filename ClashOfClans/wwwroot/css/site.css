@@ -4,6 +4,9 @@
 }
 
 body {
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
     padding-top: 50px;
     color: white;
     padding-bottom: 20px;
