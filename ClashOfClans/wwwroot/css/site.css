@@ -64,4 +64,5 @@ body {
 .block.active {
     transform: scaleY(1);
     transition-duration: 0.4s;
+    transform-origin: 0 0;
 }

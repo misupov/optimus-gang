@@ -12,7 +12,7 @@ namespace ClashOfClans.Pages.Model
     [UsedImplicitly]
     public class WarlogDetail
     {
-        public WarResult Result { get; set; }
+        public string Result { get; set; }
         public string EndTime { get; set; }
         public int TeamSize { get; set; }
         public ClanDetails Clan { get; set; }
