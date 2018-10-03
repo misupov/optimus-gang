@@ -14,7 +14,7 @@ namespace ClashOfClans.Pages
         [UsedImplicitly]
         public async Task OnGet()
         {
-            using (var httpClient = new HttpClient(new SocketsHttpHandler()))
+            using (var httpClient = new HttpClient())
             {
                 var id = "Q8GRU2LR";
 

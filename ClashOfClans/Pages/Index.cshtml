@@ -15,23 +15,8 @@
     .user-details a:visited { color: yellow; }
 </style>
 
-<div class="block about">
-    <div>
-        <img src="@Model.ClanDetails.BadgeUrls.Small" alt="">
-    </div>
-    <div>
-        <div>Всего очков: @Model.ClanDetails.ClanPoints / @Model.ClanDetails.ClanVersusPoints</div>
-        <div>Серия побед: @Model.ClanDetails.WarWinStreak</div>
-        <div>Выиграно войн: @Model.ClanDetails.WarWins</div>
-        <div>Проиграно войн: @Model.ClanDetails.WarLosses</div>
-        <div>Ничья: @Model.ClanDetails.WarTies</div>
-        <div>Побед &divide; поражений: @(((double)Model.ClanDetails.WarWins / Model.ClanDetails.WarLosses).ToString("##.000"))</div>
-        <div>Публичный варлог: @(Model.ClanDetails.IsWarLogPublic ? "Да" : "Нет")</div>
-        <div>Необходимо трофеев: @Model.ClanDetails.RequiredTrophies</div>
-        <div>Расположение клана: @Model.ClanDetails.Location.Name</div>
-        <div>Соклановцы: @Model.ClanDetails.Members/50</div>
-    </div>
-</div>
+<div id="app"></div>
+
 
 @{
     var totalDonation = (double) Model.ClanDetails.MemberList.Sum(m => m.Donations);

@@ -25,11 +25,9 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -50,15 +48,12 @@
         </div>
     </nav>
 
-    <main>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)">&copy; @DateTime.Now.Year - Optimus Gang</p>
-            </footer>
-        </div>
-    </main>
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            <p style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)">&copy; @DateTime.Now.Year - Optimus Gang</p>
+        </footer>
+    </div>
 
     <environment include="Development">
         <script src="~/site.js" asp-append-version="true"></script>
