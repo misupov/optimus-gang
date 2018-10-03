@@ -37,7 +37,7 @@ namespace ClashOfClans
             services.AddHttpsRedirection(options =>
             {
                 options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
-                options.HttpsPort = 403;
+                options.HttpsPort = 443;
             });
         }
 
