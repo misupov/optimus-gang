@@ -37,13 +37,15 @@
         </div>
     </nav>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)">&copy; 2018 - Optimus Gang</p>
-        </footer>
-    </div>
+    <main>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p style="text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4)">&copy; 2018 - Optimus Gang</p>
+            </footer>
+        </div>
+    </main>
 
     <environment include="Development">
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
