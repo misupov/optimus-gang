@@ -55,3 +55,13 @@ body {
 .navbar-inverse .navbar-nav > li > a { color: white; }
 
 .navbar-inverse .navbar-nav > li > a:visited { color: white; }
+
+.block:not(.active) {
+    transform: scaleY(0);
+    transform-origin: 0 0;
+}
+
+.block.active {
+    transform: scaleY(1);
+    transition-duration: 0.4s;
+}

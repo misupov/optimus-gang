@@ -1,8 +1,11 @@
 Vue.component("clash-clan-info",
     {
-        props: ["info"],
+        props: {
+            info: { type: Object },
+            active: { type: Boolean, default: false }
+        },
         template: `
-<div class="block about">
+<div class="block about" v-bind:class="{ active: active }">
     <div>
         <img v-bind:src="info.badgeUrls.small" alt="">
     </div>
@@ -25,10 +28,13 @@ Vue.component("clash-clan-info",
 
 Vue.component("clash-clan-moto",
     {
-        props: ["info"],
+        props: {
+            description: {type: String},
+            active: { type: Boolean, default: false }
+        },
         template: `
-<div class="block">
-    <div>{{info.description}}</div>
+<div class="block" v-bind:class="{ active: active }">
+    <div>{{description}}</div>
 </div>
 `
     });
@@ -64,19 +70,26 @@ var app = new Vue({
                 warWins: 0,
                 warLosses: 0,
                 badgeUrls: { small: null },
-                location: { name: null }
-            }
+                location: { name: null },
+                description: ""
+            },
+            active: false
         }
     },
     methods: {
         fetchData() {
-            fetch("api/clash").then(r => r.json().then(t => this.post = t));
+            fetch("api/clash").then(r => r.json().then(t => {
+                this.post = t;
+                this.active = true;
+            }));
         }
     },
     template: `
 <div>
-<clash-clan-info v-bind:info="post"></clash-clan-info>
-<clash-clan-moto v-bind:info="post"></clash-clan-moto>
+<clash-clan-info v-bind:info="post" v-bind:active="active"></clash-clan-info>
+<clash-clan-moto v-bind:description="post.description" v-bind:active="active"></clash-clan-moto>
+<clash-clan-donation></clash-clan-donation>
+<clash-warlog></clash-warlog>
 </div>
 `
 })
