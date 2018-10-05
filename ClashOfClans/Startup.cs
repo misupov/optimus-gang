@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ClashOfClans.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -41,9 +39,6 @@ namespace ClashOfClans
                 options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
                 options.HttpsPort = 443;
             });
-
-            services.AddDbContext<ClashContext>(options => options.UseSqlite("Data Source=Clash.db"));
-            services.AddHostedService<DetailsFetcherService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
