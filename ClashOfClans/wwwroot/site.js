@@ -117,20 +117,24 @@ Vue.component("clash-warlog-item",
             }
         },
         template: `
-<div class="row" style="display: flex; flex-wrap: nowrap; white-space: nowrap" v-bind:style="background">
-    <span style="flex: 1; text-align: end; display: flex; flex-direction: column; margin-right: 5px">
+<div class="row" style="display: flex; flex-wrap: nowrap; white-space: nowrap;" v-bind:style="background">
+    <span style="flex: 1; display: flex; margin-right: 2px; justify-content: flex-end; align-items: center;">
+        <div>
+            <span style="font-size: 7px">Optimus Gang</span>
+            <span>{{item.clan.destructionPercentage.toFixed(2)}}%</span>
+        </div>
         <span>
-            <img v-bind:src="item.clan.badgeUrls.small" width="22">
+            <img v-bind:src="item.clan.badgeUrls.small" width="32">
         </span>
-        <span>{{item.clan.destructionPercentage.toFixed(2)}}%</span>
-        <span style="font-size: 7px">Optimus Gang</span>
     </span>
-    <span style="flex:1; display: flex; flex-direction: column; margin-left: 5px">
+    <span style="flex:1; display: flex; margin-left: 2px; justify-content: flex-start; align-items: center;">
         <span>
-            <img v-bind:src="item.opponent.badgeUrls.small" width="22">
+            <img v-bind:src="item.opponent.badgeUrls.small" width="32">
         </span>
-        <span>{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
-        <a v-bind:href="openClanHref" style="font-size: 7px">{{item.opponent.name}}</a>
+        <div>
+            <span>{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
+            <a v-bind:href="openClanHref" style="font-size: 7px">{{item.opponent.name}}</a>
+        </div>
     </span>
 </div>
 `
