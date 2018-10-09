@@ -117,11 +117,11 @@ Vue.component("clash-warlog-item",
             }
         },
         template: `
-<div class="row" style="display: flex; flex-wrap: nowrap; white-space: nowrap;" v-bind:style="background">
+<div class="row" class="user-details-row" v-bind:style="background">
     <span style="flex: 1; display: flex; margin-right: 2px; justify-content: flex-end; align-items: center;">
-        <div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center;">
             <span style="font-size: 7px">Optimus Gang</span>
-            <span>{{item.clan.destructionPercentage.toFixed(2)}}%</span>
+            <span style="margin-left: 5px">{{item.clan.destructionPercentage.toFixed(2)}}%</span>
         </div>
         <span>
             <img v-bind:src="item.clan.badgeUrls.small" width="32">
@@ -131,8 +131,8 @@ Vue.component("clash-warlog-item",
         <span>
             <img v-bind:src="item.opponent.badgeUrls.small" width="32">
         </span>
-        <div>
-            <span>{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center;">
+            <span style="margin-right: 5px">{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
             <a v-bind:href="openClanHref" style="font-size: 7px">{{item.opponent.name}}</a>
         </div>
     </span>

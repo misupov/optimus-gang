@@ -94,3 +94,9 @@ ul {
 .user-details a { color: yellow; }
 
 .user-details a:visited { color: yellow; }
+
+.user-details-row {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
