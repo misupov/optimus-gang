@@ -9,9 +9,9 @@ namespace ClashOfClans.Pages
         {
             return new IconUrls
             {
-                Small = Fix(urls.Small),
-                Medium = Fix(urls.Medium),
-                Large = Fix(urls.Large)
+                Small = urls.Small != null ? Fix(urls.Small) : null,
+                Medium = urls.Medium != null ? Fix(urls.Medium) : null,
+                Large = urls.Large != null ? Fix(urls.Large) : null
             };
         }
 
