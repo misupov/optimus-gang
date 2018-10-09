@@ -132,8 +132,8 @@ Vue.component("clash-warlog-item",
             <img v-bind:src="item.opponent.badgeUrls.small" width="40">
         </span>
         <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center;">
-            <span style="margin-right: 5px">{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
             <a v-bind:href="openClanHref" style="font-size: 7px">{{item.opponent.name}}</a>
+            <span style="margin-right: 5px">{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
         </div>
     </span>
 </div>
