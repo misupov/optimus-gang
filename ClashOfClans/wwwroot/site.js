@@ -129,7 +129,7 @@ Vue.component("clash-warlog-item",
     </span>
     <span style="flex:1; display: flex; margin-left: 2px; justify-content: flex-start; align-items: center;">
         <span>
-            <img v-bind:src="item.opponent.badgeUrls.small" width="40">
+            <img v-bind:src="item.opponent.badgeUrls.large" width="40">
         </span>
         <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center;">
             <span style="margin-right: 5px">{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
