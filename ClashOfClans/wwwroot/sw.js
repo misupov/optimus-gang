@@ -1,4 +1,4 @@
-"v11";
+"v12";
 
 const PRECACHE = "precache-v1";
 const RUNTIME = "runtime";
