@@ -15,6 +15,7 @@ Vue.component("clash-clan-info",
         <div>Выиграно войн: {{info.warWins}}</div>
         <div>Проиграно войн: {{info.warLosses}}</div>
         <div>Ничья: {{info.warTies}}</div>
+        <div>Всего: {{info.warWins + info.warLosses + info.warTies}}</div>
         <div>Побед &divide; поражений: {{(info.warLosses === 0 ? 0 : info.warWins / info.warLosses).toFixed(3)}}</div>
         <div>Публичный варлог: {{info.isWarLogPublic ? "Да" : "Нет"}}</div>
         <div>Необходимо трофеев: {{info.requiredTrophies}}</div>
