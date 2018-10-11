@@ -1,31 +1,10 @@
-"v20";
+const version = "v21";
 
-const PRECACHE = "precache-v1";
-const RUNTIME = "runtime";
-
-// A list of local resources we always want to be cached.
-const PRECACHE_URLS = [
-    "manifest.json",
-    "./manifest.json",
-    "/manifest.json",
-    "./images/icon-192.png",
-    "./images/icon-512.png",
-    "./",
-    "/"
-];
-
-// The install handler takes care of precaching the resources we always need.
-self.addEventListener("install", event => {
-    event.waitUntil(
-        caches.open(PRECACHE)
-            .then(cache => cache.addAll(PRECACHE_URLS))
-            .then(self.skipWaiting())
-    );
-});
+const CACHE = `cache-${version}`;
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener("activate", event => {
-    const currentCaches = [PRECACHE, RUNTIME];
+    const currentCaches = [CACHE];
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
@@ -49,7 +28,7 @@ self.addEventListener('fetch', event => {
                     return cachedResponse;
                 }
 
-                return caches.open(RUNTIME).then(cache => {
+                return caches.open(CACHE).then(cache => {
                     return fetch(event.request).then(response => {
                         // Put a copy of the response in the runtime cache.
                         return cache.put(event.request, response.clone()).then(() => {

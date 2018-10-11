@@ -87,14 +87,16 @@ ul {
     position: relative;
 }
 
-.user-details::before {
+.user-details::after {
     content: "";
     position: absolute;
-    background: rgba(255, 255, 255, 0.15);
-    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    width: calc(100% - 2px);
     height: 50%;
-    top: 0;
+    top: 1px;
+    left: 1px;
     pointer-events: none;
+    border-radius: 5px;
 }
 
 .user-details a { color: #fff800; }
