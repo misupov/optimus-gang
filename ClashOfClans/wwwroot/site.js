@@ -86,7 +86,7 @@ Vue.component("clash-clan-donation",
         },
         template: `
 <div class="block" v-bind:class="{ active: active }">
-    Донат:
+    <h2>Донат</h2>
     <ol>
         <li class="user-details" v-for="item in orderedMemberList">
             <clash-clan-donation-details v-bind:item="item" v-bind:totalDonation="totalDonation"></clash-clan-donation-details>
@@ -148,7 +148,7 @@ Vue.component("clash-warlog",
         },
         template: `
 <div class="block" v-bind:class="{ active: active }">
-    Ход войны:
+    <h2>Ход войны</h2>
     <ul>
         <li class="user-details" v-for="item in warlog.items">
             <clash-warlog-item v-bind:item="item"></clash-warlog-item>
