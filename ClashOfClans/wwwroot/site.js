@@ -117,7 +117,7 @@ Vue.component("clash-warlog-item",
             }
         },
         template: `
-<div class="row" class="user-details-row" v-bind:style="background">
+<div class="row user-details-row" v-bind:style="background">
     <span style="flex: 1; display: flex; justify-content: flex-end; align-items: center;">
         <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center;">
             <span style="font-size: 9px">Optimus Gang</span>
