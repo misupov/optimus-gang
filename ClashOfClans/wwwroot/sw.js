@@ -1,18 +1,14 @@
-const version = "v21";
+const version = "v22";
 
 const CACHE = `cache-${version}`;
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener("activate", event => {
-    const currentCaches = [CACHE];
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-        }).then(cachesToDelete => {
-            return Promise.all(cachesToDelete.map(cacheToDelete => {
-                return caches.delete(cacheToDelete);
-            }));
-        }).then(() => self.clients.claim())
+        caches.keys()
+            .then(cacheNames => cacheNames.filter(cacheName => CACHE !== cacheName))
+            .then(cachesToDelete => Promise.all(cachesToDelete.map(cacheToDelete => caches.delete(cacheToDelete)))
+            .then(() => self.clients.claim()))
     );
 });
 
