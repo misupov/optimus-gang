@@ -1,4 +1,4 @@
-const version = "v25";
+const version = "v26";
 
 const CACHE = `cache-${version}`;
 
