@@ -86,7 +86,7 @@ Vue.component("clash-clan-donation",
             }
         },
         template: `
-<div class="block" v-bind:class="{ active: active }">
+<div class="block donate" v-bind:class="{ active: active }">
     <h2>Донат</h2>
     <ol>
         <li class="user-details" v-for="item in orderedMemberList">

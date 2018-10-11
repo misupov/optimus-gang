@@ -80,6 +80,21 @@ ul {
     padding: 0;
 }
 
+.donate ol {
+    counter-reset: li;
+    padding: 0 0 0 20px;
+    list-style-type: none;
+}
+
+.donate ol li::before {
+    content: counter(li)'.';
+    counter-increment: li;
+    position: absolute;
+    right: 100%;
+    top: 5px;
+    margin-right: 0.5em;
+}
+
 .about { display: flex; }
 
 .user-details {
