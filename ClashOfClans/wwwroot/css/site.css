@@ -91,9 +91,9 @@ ul {
     top: 0;
 }
 
-.user-details a { color: yellow; }
+.user-details a { color: #fff800; }
 
-.user-details a:visited { color: yellow; }
+.user-details a:visited { color: #fff800; }
 
 .user-details-row {
     display: flex;

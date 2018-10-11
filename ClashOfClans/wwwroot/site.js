@@ -46,7 +46,7 @@ Vue.component("clash-clan-donation-details", {
     },
     computed: {
         openPlayerProfileHref: function () {
-            return `https://link.clashofclans.com/?action=OpenPlayerProfile&tag=${this.tag}`;
+            return `https://link.clashofclans.com/?action=OpenPlayerProfile&tag=${this.item.tag}`;
         }
     },
     template: `
@@ -120,7 +120,7 @@ Vue.component("clash-warlog-item",
 <div class="row" class="user-details-row" v-bind:style="background">
     <span style="flex: 1; display: flex; justify-content: flex-end; align-items: center;">
         <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center;">
-            <span style="font-size: 7px">Optimus Gang</span>
+            <span style="font-size: 9px">Optimus Gang</span>
             <span style="margin-left: 5px">{{item.clan.destructionPercentage.toFixed(2)}}%</span>
         </div>
         <span>
@@ -133,7 +133,7 @@ Vue.component("clash-warlog-item",
         </span>
         <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center;">
             <span style="margin-right: 5px">{{item.opponent.destructionPercentage.toFixed(2)}}%</span>
-            <a v-bind:href="openClanHref" style="font-size: 7px">{{item.opponent.name}}</a>
+            <a v-bind:href="openClanHref" style="font-size: 9px">{{item.opponent.name}}</a>
         </div>
     </span>
 </div>
@@ -196,7 +196,7 @@ var app = new Vue({
 <clash-clan-info v-bind:info="clan" v-bind:active="clanInfoActive"></clash-clan-info>
 <clash-clan-moto v-bind:description="clan.description" v-bind:active="clanInfoActive"></clash-clan-moto>
 <clash-clan-donation v-bind:clanDetails="clan" v-bind:active="clanInfoActive"></clash-clan-donation>
-<clash-warlog  v-bind:warlog="warlog" v-bind:active="warlogActive"></clash-warlog>
+<clash-warlog v-bind:warlog="warlog" v-bind:active="warlogActive"></clash-warlog>
 </div>
 `
 })
