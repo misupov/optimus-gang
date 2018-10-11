@@ -7,6 +7,7 @@ namespace ClashOfClans.Pages
     {
         public static IconUrls Fix(IconUrls urls)
         {
+            return urls;
             return new IconUrls
             {
                 Small = urls.Small != null ? Fix(urls.Small) : null,
